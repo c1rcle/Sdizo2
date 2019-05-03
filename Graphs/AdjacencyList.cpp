@@ -71,6 +71,7 @@ std::string AdjacencyList::toString()
     std::string representation;
     for (int i = 0; i < graphSize; i++)
     {
+        representation.append(std::to_string(i) + ": ");
         for (auto item : base[i]) representation.append(std::to_string(item.vertex)
         + "(" + std::to_string(item.weight) + "), ");
         representation.erase(representation.size() - 2);

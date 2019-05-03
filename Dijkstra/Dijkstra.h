@@ -35,11 +35,15 @@ public:
     /// Wykonuje algorytm dla grafu w postaci macierzy sąsiedztwa.
     /// \param graph - macierz sąsiedztwa grafu.
     /// \param startingVertex - wierzchołek startu.
-    /// \return Lista wierzchołków z drogami oraz poprzednikami.
-    std::string proccessMatrix(AdjacencyMatrix * graph, int startingVertex);
+    void proccessMatrix(AdjacencyMatrix * graph, int startingVertex);
     /// Wykonuje algorytm dla grafu w postaci listy sąsiedztwa.
     /// \param graph - lista sąsiedztwa grafu.
     /// \param startingVertex - wierzchołek startu.
-    /// \return Lista wierzchołków z drogami oraz poprzednikami.
-    std::string proccessList(AdjacencyList * graph, int startingVertex);
+    void proccessList(AdjacencyList * graph, int startingVertex);
+    /// Zwraca wskaźnik na pierwszy element tablicy odłegłości.
+    /// \return wskaźnik na pierwszy element tablicy odłegłości.
+    int * getDistanceArray();
+    /// Zwraca wskaźnik na pierwszy element tablicy poprzedników.
+    /// \return wskaźnik na pierwszy element tablicy poprzedników.
+    int * getPredeccesorArray();
 };

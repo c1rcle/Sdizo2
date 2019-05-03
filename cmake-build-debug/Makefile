@@ -231,6 +231,87 @@ Graphs/AdjacencyMatrix.cpp.s:
 	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.s
 .PHONY : Graphs/AdjacencyMatrix.cpp.s
 
+Menu/Menu.o: Menu/Menu.cpp.o
+
+.PHONY : Menu/Menu.o
+
+# target to build an object file
+Menu/Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o
+.PHONY : Menu/Menu.cpp.o
+
+Menu/Menu.i: Menu/Menu.cpp.i
+
+.PHONY : Menu/Menu.i
+
+# target to preprocess a source file
+Menu/Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Menu.cpp.i
+.PHONY : Menu/Menu.cpp.i
+
+Menu/Menu.s: Menu/Menu.cpp.s
+
+.PHONY : Menu/Menu.s
+
+# target to generate assembly for a file
+Menu/Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Menu.cpp.s
+.PHONY : Menu/Menu.cpp.s
+
+Menu/Submenus/ShortestPathItem.o: Menu/Submenus/ShortestPathItem.cpp.o
+
+.PHONY : Menu/Submenus/ShortestPathItem.o
+
+# target to build an object file
+Menu/Submenus/ShortestPathItem.cpp.o:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o
+.PHONY : Menu/Submenus/ShortestPathItem.cpp.o
+
+Menu/Submenus/ShortestPathItem.i: Menu/Submenus/ShortestPathItem.cpp.i
+
+.PHONY : Menu/Submenus/ShortestPathItem.i
+
+# target to preprocess a source file
+Menu/Submenus/ShortestPathItem.cpp.i:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.i
+.PHONY : Menu/Submenus/ShortestPathItem.cpp.i
+
+Menu/Submenus/ShortestPathItem.s: Menu/Submenus/ShortestPathItem.cpp.s
+
+.PHONY : Menu/Submenus/ShortestPathItem.s
+
+# target to generate assembly for a file
+Menu/Submenus/ShortestPathItem.cpp.s:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.s
+.PHONY : Menu/Submenus/ShortestPathItem.cpp.s
+
+Test/Measurement.o: Test/Measurement.cpp.o
+
+.PHONY : Test/Measurement.o
+
+# target to build an object file
+Test/Measurement.cpp.o:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o
+.PHONY : Test/Measurement.cpp.o
+
+Test/Measurement.i: Test/Measurement.cpp.i
+
+.PHONY : Test/Measurement.i
+
+# target to preprocess a source file
+Test/Measurement.cpp.i:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Test/Measurement.cpp.i
+.PHONY : Test/Measurement.cpp.i
+
+Test/Measurement.s: Test/Measurement.cpp.s
+
+.PHONY : Test/Measurement.s
+
+# target to generate assembly for a file
+Test/Measurement.cpp.s:
+	$(MAKE) -f CMakeFiles/Projekt2.dir/build.make CMakeFiles/Projekt2.dir/Test/Measurement.cpp.s
+.PHONY : Test/Measurement.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -279,6 +360,15 @@ help:
 	@echo "... Graphs/AdjacencyMatrix.o"
 	@echo "... Graphs/AdjacencyMatrix.i"
 	@echo "... Graphs/AdjacencyMatrix.s"
+	@echo "... Menu/Menu.o"
+	@echo "... Menu/Menu.i"
+	@echo "... Menu/Menu.s"
+	@echo "... Menu/Submenus/ShortestPathItem.o"
+	@echo "... Menu/Submenus/ShortestPathItem.i"
+	@echo "... Menu/Submenus/ShortestPathItem.s"
+	@echo "... Test/Measurement.o"
+	@echo "... Test/Measurement.i"
+	@echo "... Test/Measurement.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -57,9 +57,35 @@ include CMakeFiles/Projekt2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Projekt2.dir/flags.make
 
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o: CMakeFiles/Projekt2.dir/flags.make
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o: ../Menu/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.cpp"
+
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projekt2.dir/Menu/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.cpp" > CMakeFiles/Projekt2.dir/Menu/Menu.cpp.i
+
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projekt2.dir/Menu/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.cpp" -o CMakeFiles/Projekt2.dir/Menu/Menu.cpp.s
+
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o: CMakeFiles/Projekt2.dir/flags.make
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o: ../Test/Measurement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Test/Measurement.cpp"
+
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projekt2.dir/Test/Measurement.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Test/Measurement.cpp" > CMakeFiles/Projekt2.dir/Test/Measurement.cpp.i
+
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projekt2.dir/Test/Measurement.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Test/Measurement.cpp" -o CMakeFiles/Projekt2.dir/Test/Measurement.cpp.s
+
 CMakeFiles/Projekt2.dir/main.cpp.o: CMakeFiles/Projekt2.dir/flags.make
 CMakeFiles/Projekt2.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Projekt2.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Projekt2.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/main.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/main.cpp"
 
 CMakeFiles/Projekt2.dir/main.cpp.i: cmake_force
@@ -72,7 +98,7 @@ CMakeFiles/Projekt2.dir/main.cpp.s: cmake_force
 
 CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o: CMakeFiles/Projekt2.dir/flags.make
 CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o: ../Dijkstra/Dijkstra.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Dijkstra/Dijkstra.cpp"
 
 CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.i: cmake_force
@@ -85,7 +111,7 @@ CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.s: cmake_force
 
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o: CMakeFiles/Projekt2.dir/flags.make
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o: ../Graphs/AdjacencyMatrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.cpp"
 
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.i: cmake_force
@@ -98,7 +124,7 @@ CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.s: cmake_force
 
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o: CMakeFiles/Projekt2.dir/flags.make
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o: ../Graphs/AdjacencyList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.cpp"
 
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.i: cmake_force
@@ -111,7 +137,7 @@ CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.s: cmake_force
 
 CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o: CMakeFiles/Projekt2.dir/flags.make
 CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o: ../FordBellman/FordBellman.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.cpp"
 
 CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.i: cmake_force
@@ -122,25 +148,44 @@ CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.cpp" -o CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.s
 
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: CMakeFiles/Projekt2.dir/flags.make
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Menu/Submenus/ShortestPathItem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o -c "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.cpp"
+
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.cpp" > CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.i
+
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.cpp" -o CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.s
+
 # Object files for target Projekt2
 Projekt2_OBJECTS = \
+"CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o" \
+"CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o" \
 "CMakeFiles/Projekt2.dir/main.cpp.o" \
 "CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o" \
 "CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o" \
 "CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o" \
-"CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o"
+"CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o" \
+"CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o"
 
 # External object files for target Projekt2
 Projekt2_EXTERNAL_OBJECTS =
 
+Projekt2: CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o
+Projekt2: CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/main.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/Dijkstra/Dijkstra.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/FordBellman/FordBellman.cpp.o
+Projekt2: CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o
 Projekt2: CMakeFiles/Projekt2.dir/build.make
 Projekt2: CMakeFiles/Projekt2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Projekt2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Projekt2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Projekt2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

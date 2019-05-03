@@ -14,7 +14,7 @@ Dijkstra::~Dijkstra()
     delete[] predeccesor;
 }
 
-std::string Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
+void Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
 {
     std::vector<int> completedVertices;
     for (int i = 0; i < graph->getSize(); i++)
@@ -45,20 +45,9 @@ std::string Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex
         completedVertices.push_back(item.vertex);
         updateQueue(graph->getSize(), completedVertices);
     }
-
-    std::string representation = "Droga: ";
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(distance[i]) + "), ");
-    representation.erase(representation.size() - 2);
-
-    representation.append("\nPoprzednicy: ");
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(predeccesor[i]) + "), ");
-    representation.erase(representation.size() - 2);
-    return representation;
 }
 
-std::string Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
+void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
 {
     std::vector<int> completedVertices;
     for (int i = 0; i < graph->getSize(); i++)
@@ -89,17 +78,6 @@ std::string Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
         completedVertices.push_back(item.vertex);
         updateQueue(graph->getSize(), completedVertices);
     }
-
-    std::string representation = "Droga: ";
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(distance[i]) + "), ");
-    representation.erase(representation.size() - 2);
-
-    representation.append("\nPoprzednicy: ");
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(predeccesor[i]) + "), ");
-    representation.erase(representation.size() - 2);
-    return representation;
 }
 
 void Dijkstra::updateQueue(int size, std::vector<int> &completedVertices)
@@ -117,4 +95,14 @@ void Dijkstra::updateQueue(int size, std::vector<int> &completedVertices)
 bool Dijkstra::contains(std::vector<int> &vector, int x)
 {
     return std::find(vector.begin(), vector.end(), x) != vector.end();
+}
+
+int * Dijkstra::getDistanceArray()
+{
+    return distance;
+}
+
+int * Dijkstra::getPredeccesorArray()
+{
+    return predeccesor;
 }

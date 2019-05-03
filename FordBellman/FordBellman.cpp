@@ -12,7 +12,7 @@ FordBellman::~FordBellman()
     delete[] predeccesor;
 }
 
-std::string FordBellman::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
+void FordBellman::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
 {
     for (int i = 0; i < graph->getSize(); i++)
     {
@@ -39,20 +39,9 @@ std::string FordBellman::proccessMatrix(AdjacencyMatrix * graph, int startingVer
             }
         }
     }
-
-    std::string representation = "Droga: ";
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(distance[i]) + "), ");
-    representation.erase(representation.size() - 2);
-
-    representation.append("\nPoprzednicy: ");
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(predeccesor[i]) + "), ");
-    representation.erase(representation.size() - 2);
-    return representation;
 }
 
-std::string FordBellman::proccessList(AdjacencyList * graph, int startingVertex)
+void FordBellman::proccessList(AdjacencyList * graph, int startingVertex)
 {
     for (int i = 0; i < graph->getSize(); i++)
     {
@@ -75,16 +64,14 @@ std::string FordBellman::proccessList(AdjacencyList * graph, int startingVertex)
             }
         }
     }
-
-    std::string representation = "Droga: ";
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(distance[i]) + "), ");
-    representation.erase(representation.size() - 2);
-
-    representation.append("\nPoprzednicy: ");
-    for (int i = 0; i < graph->getSize(); i++)
-        representation.append(std::to_string(i) + "(" + std::to_string(predeccesor[i]) + "), ");
-    representation.erase(representation.size() - 2);
-    return representation;
 }
 
+int * FordBellman::getDistanceArray()
+{
+    return distance;
+}
+
+int * FordBellman::getPredeccesorArray()
+{
+    return predeccesor;
+}

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Dijkstra/Dijkstra.cpp
-Dijkstra.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Dijkstra/Dijkstra.h
-
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Dijkstra/Dijkstra.h
 iostream
 -
@@ -26,10 +22,6 @@ climits
 ../Graphs/AdjacencyList.h
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.h
 
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.cpp
-FordBellman.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.h
-
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.h
 string
 -
@@ -40,33 +32,17 @@ climits
 ../Graphs/AdjacencyList.h
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.h
 
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.cpp
-AdjacencyList.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.h
-
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyList.h
 iostream
 -
 list
 -
 
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.cpp
-AdjacencyMatrix.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.h
-
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.h
 iostream
 -
 string
 -
-
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.h
-iostream
--
-vector
--
-MenuItem.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/MenuItem.h
 
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/MenuItem.h
 fstream
@@ -78,17 +54,17 @@ chrono
 vector
 -
 
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/main.cpp
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.cpp
+ShortestPathItem.h
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.h
+
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.h
 iostream
 -
-ctime
--
-Menu/Menu.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.h
-Graphs/AdjacencyMatrix.h
-/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.h
-Dijkstra/Dijkstra.h
+../MenuItem.h
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/MenuItem.h
+../../Dijkstra/Dijkstra.h
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Dijkstra/Dijkstra.h
-FordBellman/FordBellman.h
+../../FordBellman/FordBellman.h
 /home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/FordBellman/FordBellman.h
 

@@ -108,6 +108,30 @@
 		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Graphs/AdjacencyMatrix.h">
 			<Option target="Projekt2"/>
 		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.cpp">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Menu.h">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/MenuItem.h">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/MinimumSpanningItem.h">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.cpp">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Menu/Submenus/ShortestPathItem.h">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Test/Measurement.cpp">
+			<Option target="Projekt2"/>
+		</Unit>
+		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/Test/Measurement.h">
+			<Option target="Projekt2"/>
+		</Unit>
 		<Unit filename="/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/main.cpp">
 			<Option target="Projekt2"/>
 		</Unit>

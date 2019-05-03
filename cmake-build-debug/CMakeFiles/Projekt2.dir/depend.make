@@ -17,11 +17,27 @@ CMakeFiles/Projekt2.dir/Graphs/AdjacencyList.cpp.o: ../Graphs/AdjacencyList.h
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o: ../Graphs/AdjacencyMatrix.cpp
 CMakeFiles/Projekt2.dir/Graphs/AdjacencyMatrix.cpp.o: ../Graphs/AdjacencyMatrix.h
 
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o: ../Menu/Menu.cpp
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o: ../Menu/Menu.h
+CMakeFiles/Projekt2.dir/Menu/Menu.cpp.o: ../Menu/MenuItem.h
+
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Dijkstra/Dijkstra.h
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../FordBellman/FordBellman.h
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Graphs/AdjacencyList.h
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Graphs/AdjacencyMatrix.h
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Menu/MenuItem.h
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Menu/Submenus/ShortestPathItem.cpp
+CMakeFiles/Projekt2.dir/Menu/Submenus/ShortestPathItem.cpp.o: ../Menu/Submenus/ShortestPathItem.h
+
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o: ../Test/Measurement.cpp
+CMakeFiles/Projekt2.dir/Test/Measurement.cpp.o: ../Test/Measurement.h
+
 CMakeFiles/Projekt2.dir/main.cpp.o: ../Dijkstra/Dijkstra.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../FordBellman/FordBellman.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../Graphs/AdjacencyList.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../Graphs/AdjacencyMatrix.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../Menu/Menu.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../Menu/MenuItem.h
+CMakeFiles/Projekt2.dir/main.cpp.o: ../Menu/Submenus/ShortestPathItem.h
 CMakeFiles/Projekt2.dir/main.cpp.o: ../main.cpp
 
