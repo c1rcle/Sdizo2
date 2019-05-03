@@ -1,0 +1,3 @@
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles/Projekt2.dir
+/home/c1rcle/Politechnika/Struktury danych i złożność obliczeniowa/Projekt2/cmake-build-debug/CMakeFiles/edit_cache.dir
