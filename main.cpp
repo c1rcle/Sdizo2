@@ -12,7 +12,6 @@ int main()
     auto * path = new ShortestPathItem();
     menu->addMenuItem(path);
     menu->processInput();
-
     delete menu;
     return 0;
 }

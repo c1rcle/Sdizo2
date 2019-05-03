@@ -4,6 +4,10 @@ AdjacencyMatrix::AdjacencyMatrix(int graphSize)
 {
     this->graphSize = graphSize;
     base = new int[graphSize * graphSize];
+
+    for (int i = 0; i < graphSize; i++)
+        for (int j = 0; j < graphSize; j++)
+            base[i * graphSize + j] = 0;
 }
 
 AdjacencyMatrix::~AdjacencyMatrix()
@@ -58,11 +62,14 @@ int AdjacencyMatrix::getSize()
 std::string AdjacencyMatrix::toString()
 {
     std::string representation;
+    int padding = floor(std::log10(graphSize * graphSize));
     for (int i = 0; i < graphSize; i++)
     {
         for (int j = 0; j < graphSize; j++)
         {
-            representation.append(std::to_string(base[i * graphSize + j]) + " ");
+            std::string currentWeight = std::to_string(base[i * graphSize + j]);
+            currentWeight.insert(0, padding - currentWeight.size(), ' ');
+            representation.append(currentWeight + " ");
         }
         representation.append("\n");
     }

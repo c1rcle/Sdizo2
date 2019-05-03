@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <math.h>
 #include <string>
 
 /// Klasa reprezentująca macierz sąsiedztwa.

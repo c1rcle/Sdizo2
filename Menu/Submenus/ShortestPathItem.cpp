@@ -81,7 +81,35 @@ void ShortestPathItem::loadFile()
 
 void ShortestPathItem::createRandom()
 {
+    int vertexCount, density;
+    std::cout << "\nPodaj liczbę wierzchołków grafu: ";
+    std::cin >> vertexCount;
+    std::cout << "Podaj gęstość grafu (w %): ";
+    std::cin >> density;
 
+    if (matrix != nullptr && list != nullptr)
+    {
+        delete matrix;
+        delete list;
+    }
+    matrix = new AdjacencyMatrix(vertexCount);
+    list = new AdjacencyList(vertexCount);
+
+    int maxEdges = static_cast<int>(density / 100.0f * (vertexCount * vertexCount));
+    int edgeCount = 0;
+    while (edgeCount < maxEdges)
+    {
+        int start = rand() % vertexCount;
+        int end = rand() % vertexCount;
+        int weight = (rand() % maxEdges) + 1;
+
+        if (matrix->findVertex(start, end) == 0)
+        {
+            matrix->addVertex(start, end, weight);
+            list->addVertex(start, end, weight);
+            edgeCount++;
+        }
+    }
 }
 
 void ShortestPathItem::display()
