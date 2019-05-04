@@ -9,8 +9,6 @@ Prim::~Prim() = default;
 
 void Prim::proccessMatrix(AdjacencyMatrix * graph)
 {
-    clearQueue();
-    edgeList.clear();
     std::list<int> treeVertices;
     int startingVertex = rand() % graph->getSize();
     treeVertices.push_back(startingVertex);
@@ -46,8 +44,6 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
 
 void Prim::proccessList(AdjacencyList * graph)
 {
-    clearQueue();
-    edgeList.clear();
     std::list<int> treeVertices;
     int startingVertex = rand() % graph->getSize();
     treeVertices.push_back(startingVertex);
@@ -91,4 +87,10 @@ void Prim::clearQueue()
 {
     auto compare = [](Edge left, Edge right) { return left.weight > right.weight; };
     vertexQueue = minQueue(compare);
+}
+
+void Prim::resetContainers()
+{
+    clearQueue();
+    edgeList.clear();
 }

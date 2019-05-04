@@ -137,10 +137,12 @@ void MinimumSpanningItem::executeFirst()
     prim->proccessMatrix(matrix);
     std::cout << "\nMacierz sąsiedztwa: " << std::endl;
     displayAlgorithmResult(prim->getEdgeList());
+    prim->resetContainers();
 
     prim->proccessList(list);
     std::cout << "\nLista sąsiedztwa: " << std::endl;
     displayAlgorithmResult(prim->getEdgeList());
+    prim->resetContainers();
     delete prim;
 }
 

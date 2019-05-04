@@ -56,4 +56,6 @@ public:
     /// Zwraca listę krawędzi drzewa MST.
     /// \return - referencja do listy krawędzi drzewa MST.
     std::list<Edge> &getEdgeList();
+    /// Usuwa wyniki działania algorytmu poprzez wyczyszczenie kontenerów.
+    void resetContainers();
 };
