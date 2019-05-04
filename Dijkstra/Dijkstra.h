@@ -6,6 +6,7 @@
 #include <climits>
 #include "../Graphs/AdjacencyMatrix.h"
 #include "../Graphs/AdjacencyList.h"
+#include "../Utility/Utility.h"
 
 /// Klasa dla algorytmu Dijkstry.
 class Dijkstra
@@ -21,11 +22,6 @@ private:
     /// Wypełnia kolejkę wierzchołkami.
     /// \param size - ilość wierzchołków grafu.
     void updateQueue(int size, std::vector<int> &completedVertices);
-    /// Sprawdza czy dana wartość występuje w wektorze.
-    /// \param vector - wektor dla którego będzie wykonana operacja.
-    /// \param x - szukana wartość.
-    /// \return true jeśli została znaleziona, false - w przeciwnym wypadku.
-    static bool contains(std::vector<int> &vector, int x);
 public:
     /// Konstruktor klasy algorytmu Dijkstry.
     /// \param size - ilość wierzchołków grafu.

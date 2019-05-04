@@ -84,17 +84,12 @@ void Dijkstra::updateQueue(int size, std::vector<int> &completedVertices)
 {
     for (int i = 0; i < size; i++)
     {
-        if (!contains(completedVertices, i))
+        if (!Utility::contains(completedVertices, i))
         {
             ListItem item { i, distance[i] };
             vertexQueue.push(item);
         }
     }
-}
-
-bool Dijkstra::contains(std::vector<int> &vector, int x)
-{
-    return std::find(vector.begin(), vector.end(), x) != vector.end();
 }
 
 int * Dijkstra::getDistanceArray()
