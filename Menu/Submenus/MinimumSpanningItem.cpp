@@ -82,35 +82,7 @@ void MinimumSpanningItem::loadFile()
 
 void MinimumSpanningItem::createRandom()
 {
-    int vertexCount, density;
-    std::cout << "\nPodaj liczbę wierzchołków grafu: ";
-    std::cin >> vertexCount;
-    std::cout << "Podaj gęstość grafu (w %): ";
-    std::cin >> density;
-
-    if (matrix != nullptr && list != nullptr)
-    {
-        delete matrix;
-        delete list;
-    }
-    matrix = new AdjacencyMatrix(vertexCount);
-    list = new AdjacencyList(vertexCount);
-
-    int maxEdges = static_cast<int>(density / 100.0f * (vertexCount * vertexCount));
-    int edgeCount = 0;
-    while (edgeCount < maxEdges)
-    {
-        int start = rand() % vertexCount;
-        int end = rand() % vertexCount;
-        int weight = (rand() % maxEdges) + 1;
-
-        if (matrix->findVertex(start, end) == 0)
-        {
-            matrix->addVertex(start, end, weight);
-            list->addVertex(start, end, weight);
-            edgeCount++;
-        }
-    }
+    //TODO
 }
 
 void MinimumSpanningItem::display()
@@ -148,7 +120,23 @@ void MinimumSpanningItem::executeFirst()
 
 void MinimumSpanningItem::executeSecond()
 {
+    if (matrix == nullptr || list == nullptr)
+    {
+        std::cout << "\nGraf jest pusty!" << std::endl;
+        return;
+    }
 
+    auto * kruskal = new Kruskal();
+    kruskal->proccessMatrix(matrix);
+    std::cout << "\nMacierz sąsiedztwa: " << std::endl;
+    displayAlgorithmResult(kruskal->getEdgeList());
+    kruskal->resetContainers();
+
+    kruskal->proccessList(list);
+    std::cout << "\nLista sąsiedztwa: " << std::endl;
+    displayAlgorithmResult(kruskal->getEdgeList());
+    kruskal->resetContainers();
+    delete kruskal;
 }
 
 void MinimumSpanningItem::displayAlgorithmResult(std::list<Edge> &edgeList)

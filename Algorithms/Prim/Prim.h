@@ -3,28 +3,10 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
-#include "../Graphs/AdjacencyMatrix.h"
-#include "../Graphs/AdjacencyList.h"
-#include "../Utility/Utility.h"
-
-/// Struktura opisująca krawędź.
-struct Edge
-{
-    /// Wierzchołek początkowy krawędzi.
-    int start;
-    /// Wierzchołek końcowy krawędzi.
-    int end;
-    /// Waga krawędzi.
-    int weight;
-    /// Sprawdza czy krawędzie są równe (w przypadku MST są nieskierowane).
-    /// \param item - krawędź do porównania.
-    /// \return true jeśli krawędzie są równe, w przeciwnym wypadku false.
-    bool operator==(const Edge &item)
-    {
-        return (this->start == item.start && this->end == item.end && this->weight == item.weight) ||
-        (this->start == item.end && this->end == item.start && this->weight == item.weight);
-    }
-};
+#include "../../Graphs/AdjacencyMatrix.h"
+#include "../../Graphs/AdjacencyList.h"
+#include "../../Utility/Utility.h"
+#include "../../Utility/Edge.h"
 
 /// Klasa dla algorytmu Prima.
 class Prim
@@ -35,11 +17,6 @@ private:
     minQueue vertexQueue;
     /// Lista krawędzi drzewa MST.
     std::list<Edge> edgeList;
-    /// Sprawdza czy lista krawędzi nie zawiera podanej.
-    /// \param edgeList - lista krawędzi.
-    /// \param edge - krawędź do znalezienia.
-    /// \return true jeśli zostanie odnaleziona, w przeciwnym wypadku false.
-    static bool containsEdge(std::list<Edge> &edgeList, Edge edge);
     /// Czyści kolejkę wierzchołków.
     void clearQueue();
 public:

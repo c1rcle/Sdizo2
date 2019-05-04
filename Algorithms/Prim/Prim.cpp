@@ -35,7 +35,7 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
         {
             int weight = graph->findVertex(item.end, i);
             Edge newItem = { item.end, i, weight };
-            if (weight != 0 && !containsEdge(edgeList, newItem)
+            if (weight != 0 && !Utility::containsEdge(edgeList, newItem)
                 && !Utility::contains(treeVertices, i))
                 vertexQueue.push(newItem);
         }
@@ -67,15 +67,10 @@ void Prim::proccessList(AdjacencyList * graph)
         for (auto rowItem : currentRow)
         {
             Edge newItem = { item.end, rowItem.vertex, rowItem.weight };
-            if (!containsEdge(edgeList, newItem)
+            if (!Utility::containsEdge(edgeList, newItem)
             && !Utility::contains(treeVertices, rowItem.vertex)) vertexQueue.push(newItem);
         }
     }
-}
-
-bool Prim::containsEdge(std::list<Edge> &edgeList, Edge edge)
-{
-    return std::find(edgeList.begin(), edgeList.end(), edge) != edgeList.end();
 }
 
 std::list<Edge> &Prim::getEdgeList()

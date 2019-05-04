@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../MenuItem.h"
-#include "../../Dijkstra/Dijkstra.h"
-#include "../../FordBellman/FordBellman.h"
+#include "../../Algorithms/Dijkstra/Dijkstra.h"
+#include "../../Algorithms/FordBellman/FordBellman.h"
 
 /// Klasa submenu dla problemu najkrótszej ścieżki.
 class ShortestPathItem : public MenuItem

@@ -4,9 +4,9 @@
 #include <queue>
 #include <algorithm>
 #include <climits>
-#include "../Graphs/AdjacencyMatrix.h"
-#include "../Graphs/AdjacencyList.h"
-#include "../Utility/Utility.h"
+#include "../../Graphs/AdjacencyMatrix.h"
+#include "../../Graphs/AdjacencyList.h"
+#include "../../Utility/Utility.h"
 
 /// Klasa dla algorytmu Dijkstry.
 class Dijkstra

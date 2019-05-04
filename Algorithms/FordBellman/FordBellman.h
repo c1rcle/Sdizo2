@@ -2,8 +2,8 @@
 
 #include <string>
 #include <climits>
-#include "../Graphs/AdjacencyMatrix.h"
-#include "../Graphs/AdjacencyList.h"
+#include "../../Graphs/AdjacencyMatrix.h"
+#include "../../Graphs/AdjacencyList.h"
 
 /// Klasa dla algorytmu Forda-Bellmana.
 class FordBellman

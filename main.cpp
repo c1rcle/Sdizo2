@@ -1,8 +1,6 @@
 #include <iostream>
 #include <ctime>
 #include "Menu/Menu.h"
-#include "Dijkstra/Dijkstra.h"
-#include "FordBellman/FordBellman.h"
 #include "Menu/Submenus/ShortestPathItem.h"
 #include "Menu/Submenus/MinimumSpanningItem.h"
 

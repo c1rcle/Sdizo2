@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../MenuItem.h"
-#include "../../Prim/Prim.h"
+#include "../../Algorithms/Prim/Prim.h"
+#include "../../Algorithms/Kruskal/Kruskal.h"
 
 /// Klasa submenu dla problemu minimalnego drzewa rozpinającego.
 class MinimumSpanningItem : public MenuItem
@@ -23,7 +24,7 @@ private:
     /// Wykonuje drugi algorytm (algorytm Kruskala).
     void executeSecond();
     /// Wyświetla rezultat działania algorytmu.
-    void displayAlgorithmResult(std::list<Edge> &edgeList);
+    static void displayAlgorithmResult(std::list<Edge> &edgeList);
 public:
     /// Konstruktor klasy submenu dla problemu najkrótszej ścieżki.
     MinimumSpanningItem();
