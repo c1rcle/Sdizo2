@@ -5,6 +5,7 @@
 #include <list>
 #include "Edge.h"
 
+/// Klasa statyczna, która zawiera funkcje pomocnicze.
 class Utility
 {
 public:

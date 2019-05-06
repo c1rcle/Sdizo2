@@ -2,6 +2,7 @@
 
 ShortestPathItem::ShortestPathItem()
 {
+    //Ustawiamy zmienne definiujące opis submenu.
     menuDescription = "Problem najkrótszej ścieżki (path)";
     menuCommand = "path";
 }
@@ -22,6 +23,7 @@ void ShortestPathItem::printMenu()
 
 void ShortestPathItem::processInput()
 {
+    //Wchodzimy do pętli obsługi opcji.
     std::string readConsole;
     backTyped = false;
     while (!backTyped)
@@ -36,6 +38,7 @@ void ShortestPathItem::processInput()
         else if (readConsole == "back") backTyped = true;
         else std::cout << "Nieznane polecenie!" << std::endl;
     }
+    //Jeśli graf został stworzony, dealokujemy pamięć.
     if (matrix != nullptr && list != nullptr)
     {
         delete matrix;
@@ -45,6 +48,7 @@ void ShortestPathItem::processInput()
 
 void ShortestPathItem::loadFile()
 {
+    //Standardowe wczytywanie z pliku.
     std::string filename;
     int edgeCount, vertexCount;
     std::cout << "\nPodaj nazwę pliku: ";
@@ -70,8 +74,8 @@ void ShortestPathItem::loadFile()
         {
             int start, end, weight;
             file >> start >> end >> weight;
-            matrix->addVertex(start, end, weight);
-            list->addVertex(start, end, weight);
+            matrix->addEdge(start, end, weight);
+            list->addEdge(start, end, weight);
         }
         display();
     }
@@ -81,6 +85,7 @@ void ShortestPathItem::loadFile()
 
 void ShortestPathItem::createRandom()
 {
+    //Wczytujemy parametry generowanego grafu od użytkownika.
     int vertexCount, density;
     std::cout << "\nPodaj liczbę wierzchołków grafu: ";
     std::cin >> vertexCount;
@@ -97,16 +102,26 @@ void ShortestPathItem::createRandom()
 
     int maxEdges = static_cast<int>(density / 100.0f * (vertexCount * vertexCount));
     int edgeCount = 0;
+    //Generujemy drzewo rozpinające.
+    for (int i = 0; i < vertexCount - 1; i++)
+    {
+        int weight = (rand() % maxEdges) + 1;
+        matrix->addEdge(i, i + 1, weight);
+        list->addEdge(i, i + 1, weight);
+        edgeCount++;
+    }
+
+    //Dodajemy pozostałe krawędzie (zawsze zostanie wygenerowane chociaż drzewo rozpinające).
     while (edgeCount < maxEdges)
     {
         int start = rand() % vertexCount;
         int end = rand() % vertexCount;
         int weight = (rand() % maxEdges) + 1;
 
-        if (matrix->findVertex(start, end) == 0)
+        if (matrix->findEdge(start, end) == 0)
         {
-            matrix->addVertex(start, end, weight);
-            list->addVertex(start, end, weight);
+            matrix->addEdge(start, end, weight);
+            list->addEdge(start, end, weight);
             edgeCount++;
         }
     }
@@ -114,6 +129,7 @@ void ShortestPathItem::createRandom()
 
 void ShortestPathItem::display()
 {
+    //Wyświetla obie reprezentacje.
     if (matrix != nullptr && list != nullptr)
     {
         std::cout << "\nMacierz sąsiedztwa:" << std::endl;
@@ -126,6 +142,7 @@ void ShortestPathItem::display()
 
 void ShortestPathItem::executeFirst()
 {
+    //Wykonuje algorytm Dijkstry dla obu reprezentacji grafu.
     if (matrix == nullptr || list == nullptr)
     {
         std::cout << "\nGraf jest pusty!" << std::endl;
@@ -146,6 +163,7 @@ void ShortestPathItem::executeFirst()
 
 void ShortestPathItem::executeSecond()
 {
+    //Wykonuje algorytm Forda-Bellmana dla obu reprezentacji grafu.
     if (matrix == nullptr || list == nullptr)
     {
         std::cout << "\nGraf jest pusty!" << std::endl;
@@ -166,6 +184,7 @@ void ShortestPathItem::executeSecond()
 
 void ShortestPathItem::displayAlgorithmResult(int * distance, int * predeccesor)
 {
+    //Wyświetla wynik działania algorytmu (w obu przypadkach tablice odległości i poprzedników).
     std::string representation;
     std::string vertex;
 

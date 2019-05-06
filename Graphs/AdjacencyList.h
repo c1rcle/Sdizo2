@@ -39,20 +39,20 @@ public:
     explicit AdjacencyList(int graphSize);
     /// Desktruktor klasy listy sąsiedztwa.
     ~AdjacencyList();
-    /// Dodaje wierzchołek do grafu.
+    /// Dodaje krawędź do grafu.
     /// \param startVertex - wierzchołek początkowy krawędzi.
     /// \param endVertex - wierzchołek końcowy krawędzi.
     /// \param weight - waga krawędzi.
-    void addVertex(int startVertex, int endVertex, int weight);
-    /// Usuwa wierzchołek z grafu.
+    void addEdge(int startVertex, int endVertex, int weight);
+    /// Usuwa krawędź z grafu.
     /// \param startVertex - wierzchołek początkowy krawędzi.
     /// \param endVertex  - wierzchołek końcowy krawędzi.
-    void removeVertex(int startVertex, int endVertex);
+    void removeEdge(int startVertex, int endVertex);
     /// Sprawdza czy krawędź istnieje w grafie.
     /// \param startVertex - wierzchołek początkowy krawędzi.
     /// \param endVertex - wierzchołek końcowy krawędzi.
     /// \return waga znalezionego wierzchołka lub zero, jeśli nie został znaleziony.
-    int findVertex(int startVertex, int endVertex);
+    int findEdge(int startVertex, int endVertex);
     /// Zwraca listę krawędzi sąsiadujących dla danego wierzchołka.
     /// \param vertex - wierzchołek dla którego zostanie zwrócona lista.
     /// \return lista krawędzi sąsiadującuch dla danego wierzchołka.

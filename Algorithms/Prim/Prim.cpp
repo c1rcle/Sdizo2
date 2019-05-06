@@ -2,6 +2,7 @@
 
 Prim::Prim()
 {
+    //Przygotowujemy kolejkę.
     clearQueue();
 }
 
@@ -9,13 +10,16 @@ Prim::~Prim() = default;
 
 void Prim::proccessMatrix(AdjacencyMatrix * graph)
 {
+    //Lista służy do przechowywania wierzchołków, które należą już do MST.
     std::list<int> treeVertices;
+    //Wierzchołek początkowy jest wybierany losowo.
     int startingVertex = rand() % graph->getSize();
     treeVertices.push_back(startingVertex);
 
+    //Do kolejki priorytetowej dodajemy wszystkie krawędzie wychodzące z wylosowanego wierzchołka.
     for (int i = 0; i < graph->getSize(); i++)
     {
-        int weight = graph->findVertex(startingVertex, i);
+        int weight = graph->findEdge(startingVertex, i);
         if (weight != 0)
         {
             Edge edge = { startingVertex, i, weight };
@@ -23,6 +27,9 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
         }
     }
 
+    //Dopóki nasze drzewo nie zawiera wszystkich wierzchołków znajdujących się w grafie,
+    //dodajemy do niego wierzchołek o najmniejszej wadze przejścia oraz aktualizujemy listę wierzchołków
+    //o nowe, wychodzące z dodanego wierzchołka.
     while (treeVertices.size() < graph->getSize())
     {
         Edge item = vertexQueue.top();
@@ -33,7 +40,7 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
 
         for (int i = 0; i < graph->getSize(); i++)
         {
-            int weight = graph->findVertex(item.end, i);
+            int weight = graph->findEdge(item.end, i);
             Edge newItem = { item.end, i, weight };
             if (weight != 0 && !Utility::containsEdge(edgeList, newItem)
                 && !Utility::contains(treeVertices, i))
@@ -48,6 +55,7 @@ void Prim::proccessList(AdjacencyList * graph)
     int startingVertex = rand() % graph->getSize();
     treeVertices.push_back(startingVertex);
 
+    //Dla reprezentacji listowej mamy dokładnie tyle iteracji, ile krawędzi wychodzi z danego wierzchołka.
     std::list<ListItem> &firstRow = graph->getListForVertex(startingVertex);
     for (auto rowItem : firstRow)
     {
@@ -80,12 +88,14 @@ std::list<Edge> &Prim::getEdgeList()
 
 void Prim::clearQueue()
 {
+    //Inicjalizacja kolejki priorytetowej.
     auto compare = [](Edge left, Edge right) { return left.weight > right.weight; };
     vertexQueue = minQueue(compare);
 }
 
 void Prim::resetContainers()
 {
+    //Czyści kontenery przechowujące wyniki algorytmu.
     clearQueue();
     edgeList.clear();
 }

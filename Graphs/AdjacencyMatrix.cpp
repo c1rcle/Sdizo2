@@ -2,9 +2,11 @@
 
 AdjacencyMatrix::AdjacencyMatrix(int graphSize)
 {
+    //Alokujemy pamięć dla tablicy przechowującej informacje o grafie.
     this->graphSize = graphSize;
     base = new int[graphSize * graphSize];
 
+    //Zerujemy tablicę.
     for (int i = 0; i < graphSize; i++)
         for (int j = 0; j < graphSize; j++)
             base[i * graphSize + j] = 0;
@@ -15,8 +17,9 @@ AdjacencyMatrix::~AdjacencyMatrix()
     delete[] base;
 }
 
-void AdjacencyMatrix::addVertex(int startVertex, int endVertex, int weight)
+void AdjacencyMatrix::addEdge(int startVertex, int endVertex, int weight)
 {
+    //Dodajemy nową krawędź jeśli waga jest większa lub równa 1.
     if (weight < 1) throw std::invalid_argument(EXCEPTION_DESC);
     try
     {
@@ -28,10 +31,11 @@ void AdjacencyMatrix::addVertex(int startVertex, int endVertex, int weight)
     }
 }
 
-void AdjacencyMatrix::removeVertex(int startVertex, int endVertex)
+void AdjacencyMatrix::removeEdge(int startVertex, int endVertex)
 {
     try
     {
+        //Brak krawędzi to '0' w macierzy sąsiedztwa.
         base[startVertex * graphSize + endVertex] = 0;
     }
     catch (std::out_of_range&)
@@ -40,11 +44,12 @@ void AdjacencyMatrix::removeVertex(int startVertex, int endVertex)
     }
 }
 
-int AdjacencyMatrix::findVertex(int startVertex, int endVertex)
+int AdjacencyMatrix::findEdge(int startVertex, int endVertex)
 {
     int value;
     try
     {
+        //Zwracamy wagę krawędzi dla danych wierzchołków.
         value = base[startVertex * graphSize + endVertex];
     }
     catch (std::out_of_range&)
@@ -56,18 +61,21 @@ int AdjacencyMatrix::findVertex(int startVertex, int endVertex)
 
 int AdjacencyMatrix::getSize()
 {
+    //Ilość wierzchołków grafu.
     return graphSize;
 }
 
 std::string AdjacencyMatrix::toString()
 {
     std::string representation;
+    //Obliczamy ilość cyfr potrzebną do zapisania danej liczby.
     int padding = floor(std::log10(graphSize * graphSize));
     for (int i = 0; i < graphSize; i++)
     {
         for (int j = 0; j < graphSize; j++)
         {
             std::string currentWeight = std::to_string(base[i * graphSize + j]);
+            //Wyrównujemy do lewej na podstawie maksymalnej wielkości.
             currentWeight.insert(0, padding - currentWeight.size(), ' ');
             representation.append(currentWeight + " ");
         }

@@ -2,6 +2,7 @@
 
 MinimumSpanningItem::MinimumSpanningItem()
 {
+    //Ustawiamy zmienne definiujące opis submenu.
     menuDescription = "Problem minimalnego drzewa rozpinającego (mst)";
     menuCommand = "mst";
 }
@@ -22,6 +23,7 @@ void MinimumSpanningItem::printMenu()
 
 void MinimumSpanningItem::processInput()
 {
+    //Wchodzimy do pętli obsługi opcji.
     std::string readConsole;
     backTyped = false;
     while (!backTyped)
@@ -36,6 +38,7 @@ void MinimumSpanningItem::processInput()
         else if (readConsole == "back") backTyped = true;
         else std::cout << "Nieznane polecenie!" << std::endl;
     }
+    //Jeśli graf został stworzony, dealokujemy pamięć.
     if (matrix != nullptr && list != nullptr)
     {
         delete matrix;
@@ -45,6 +48,7 @@ void MinimumSpanningItem::processInput()
 
 void MinimumSpanningItem::loadFile()
 {
+    //Standardowe wczytywanie z pliku.
     std::string filename;
     int edgeCount, vertexCount;
     std::cout << "\nPodaj nazwę pliku: ";
@@ -69,10 +73,10 @@ void MinimumSpanningItem::loadFile()
         {
             int start, end, weight;
             file >> start >> end >> weight;
-            matrix->addVertex(start, end, weight);
-            matrix->addVertex(end, start, weight);
-            list->addVertex(start, end, weight);
-            list->addVertex(end, start, weight);
+            matrix->addEdge(start, end, weight);
+            matrix->addEdge(end, start, weight);
+            list->addEdge(start, end, weight);
+            list->addEdge(end, start, weight);
         }
         display();
     }
@@ -82,11 +86,59 @@ void MinimumSpanningItem::loadFile()
 
 void MinimumSpanningItem::createRandom()
 {
-    //TODO
+    //Wczytujemy parametry generowanego grafu od użytkownika.
+    int vertexCount, density;
+    std::cout << "\nPodaj liczbę wierzchołków grafu: ";
+    std::cin >> vertexCount;
+    std::cout << "Podaj gęstość grafu (w %): ";
+    std::cin >> density;
+
+    if (matrix != nullptr && list != nullptr)
+    {
+        delete matrix;
+        delete list;
+    }
+    matrix = new AdjacencyMatrix(vertexCount);
+    list = new AdjacencyList(vertexCount);
+
+    //Maksymalna ilość wierzchołków to suma ciągu arytmetycznego an = n.
+    int maxEdges = static_cast<int>(density / 100.0f * (((vertexCount + 1) / 2.0f) * vertexCount));
+    int edgeCount = 0;
+    //Generujemy drzewo rozpinające.
+    for (int i = 0; i < vertexCount - 1; i++)
+    {
+        //Dla problemu minimalnego drzewa rozpinającego krawędzie są nieskierowane.
+        int weight = (rand() % maxEdges) + 1;
+        matrix->addEdge(i, i + 1, weight);
+        matrix->addEdge(i + 1, i, weight);
+
+        list->addEdge(i, i + 1, weight);
+        list->addEdge(i + 1, i, weight);
+        edgeCount++;
+    }
+
+    //Dodajemy pozostałe krawędzie (zawsze zostanie wygenerowane chociaż drzewo rozpinające).
+    while (edgeCount < maxEdges)
+    {
+        int start = rand() % vertexCount;
+        int end = rand() % vertexCount;
+        int weight = (rand() % maxEdges) + 1;
+
+        if (matrix->findEdge(start, end) == 0)
+        {
+            matrix->addEdge(start, end, weight);
+            matrix->addEdge(end, start, weight);
+
+            list->addEdge(start, end, weight);
+            list->addEdge(end, start, weight);
+            edgeCount++;
+        }
+    }
 }
 
 void MinimumSpanningItem::display()
 {
+    //Wyświetla obie reprezentacje.
     if (matrix != nullptr && list != nullptr)
     {
         std::cout << "\nMacierz sąsiedztwa:" << std::endl;
@@ -99,6 +151,7 @@ void MinimumSpanningItem::display()
 
 void MinimumSpanningItem::executeFirst()
 {
+    //Wykonuje algorytm Prima dla obu reprezentacji grafu.
     if (matrix == nullptr || list == nullptr)
     {
         std::cout << "\nGraf jest pusty!" << std::endl;
@@ -120,6 +173,7 @@ void MinimumSpanningItem::executeFirst()
 
 void MinimumSpanningItem::executeSecond()
 {
+    //Wykonuje algorytm Kruskala dla obu reprezentacji grafu.
     if (matrix == nullptr || list == nullptr)
     {
         std::cout << "\nGraf jest pusty!" << std::endl;
@@ -141,6 +195,7 @@ void MinimumSpanningItem::executeSecond()
 
 void MinimumSpanningItem::displayAlgorithmResult(std::list<Edge> &edgeList)
 {
+    //Wyświetla wynik działania algorytmu (w obu przypadkach lista krawędzi należących do MST).
     int mstWeight = 0;
     std::cout << "Krawędzie należące do MST: " << std::endl;
     for (auto item : edgeList)
