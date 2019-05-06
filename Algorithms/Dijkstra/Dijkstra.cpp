@@ -93,6 +93,8 @@ void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
 
 void Dijkstra::updateQueue(int size, std::vector<int> &completedVertices)
 {
+    auto compare = [](ListItem left, ListItem right) { return left.weight > right.weight; };
+    vertexQueue = minQueue(compare);
     for (int i = 0; i < size; i++)
     {
         //Dla każdego wierzchołka sprawdzamy czy nie został już przetworzony.

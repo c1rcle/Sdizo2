@@ -2,6 +2,7 @@
 #include "../MenuItem.h"
 #include "../../Algorithms/Dijkstra/Dijkstra.h"
 #include "../../Algorithms/FordBellman/FordBellman.h"
+#include "../../Test/ShortestPathTest/ShortestPathTest.h"
 
 /// Klasa submenu dla problemu najkrótszej ścieżki.
 class ShortestPathItem : public MenuItem
@@ -25,6 +26,8 @@ private:
     void executeFirst();
     /// Wykonuje drugi algorytm (algorytm Forda-Bellmana).
     void executeSecond();
+    /// Wykonuje testy dla obu algorytmów.
+    void test();
     /// Wyświetla rezultat działania algorytmu.
     void displayAlgorithmResult(int * distance, int * predeccesor);
 public:

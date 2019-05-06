@@ -1,4 +1,12 @@
+#pragma once
 #include <chrono>
+
+/// Struktura opisująca czas wykonania dla obu algorytmów.
+struct TimeMeasurement
+{
+    double first;
+    double second;
+};
 
 /// Klasa służąca do mierzenia czasu wykonywania algorytmów.
 class Measurement

@@ -17,7 +17,8 @@ void ShortestPathItem::printMenu()
     std::cout << "3. Wyświetl (disp)" << std::endl;
     std::cout << "4. Algorytm Dijkstry (dijk)" << std::endl;
     std::cout << "5. Algorytm Forda-Bellmana (ford)" << std::endl;
-    std::cout << "6. Wróć (back)" << std::endl;
+    std::cout << "6. Testuj (test)" << std::endl;
+    std::cout << "7. Wróć (back)" << std::endl;
     std::cout << "Wybierz opcję: ";
 }
 
@@ -35,6 +36,7 @@ void ShortestPathItem::processInput()
         else if (readConsole == "disp") display();
         else if (readConsole == "dijk") executeFirst();
         else if (readConsole == "ford") executeSecond();
+        else if (readConsole == "test") test();
         else if (readConsole == "back") backTyped = true;
         else std::cout << "Nieznane polecenie!" << std::endl;
     }
@@ -180,6 +182,13 @@ void ShortestPathItem::executeSecond()
     std::cout << "Lista sąsiedztwa: " << std::endl;
     displayAlgorithmResult(fordBellman->getDistanceArray(), fordBellman->getPredeccesorArray());
     delete fordBellman;
+}
+
+void ShortestPathItem::test()
+{
+    auto * test = new ShortestPathTest();
+    test->executionTestAverage();
+    delete test;
 }
 
 void ShortestPathItem::displayAlgorithmResult(int * distance, int * predeccesor)

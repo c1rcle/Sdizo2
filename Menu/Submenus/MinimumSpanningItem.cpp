@@ -17,7 +17,8 @@ void MinimumSpanningItem::printMenu()
     std::cout << "3. Wyświetl (disp)" << std::endl;
     std::cout << "4. Algorytm Prima (prim)" << std::endl;
     std::cout << "5. Algorytm Kruskala (krus)" << std::endl;
-    std::cout << "6. Wróć (back)" << std::endl;
+    std::cout << "6. Testuj (test)" << std::endl;
+    std::cout << "7. Wróć (back)" << std::endl;
     std::cout << "Wybierz opcję: ";
 }
 
@@ -35,6 +36,7 @@ void MinimumSpanningItem::processInput()
         else if (readConsole == "disp") display();
         else if (readConsole == "prim") executeFirst();
         else if (readConsole == "krus") executeSecond();
+        else if (readConsole == "test") test();
         else if (readConsole == "back") backTyped = true;
         else std::cout << "Nieznane polecenie!" << std::endl;
     }
@@ -192,6 +194,14 @@ void MinimumSpanningItem::executeSecond()
     kruskal->resetContainers();
     delete kruskal;
 }
+
+void MinimumSpanningItem::test()
+{
+    auto * test = new MinimumSpanningTest();
+    test->executionTestAverage();
+    delete test;
+}
+
 
 void MinimumSpanningItem::displayAlgorithmResult(std::list<Edge> &edgeList)
 {

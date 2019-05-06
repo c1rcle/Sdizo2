@@ -30,7 +30,7 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
     //Dopóki nasze drzewo nie zawiera wszystkich wierzchołków znajdujących się w grafie,
     //dodajemy do niego wierzchołek o najmniejszej wadze przejścia oraz aktualizujemy listę wierzchołków
     //o nowe, wychodzące z dodanego wierzchołka.
-    while (treeVertices.size() < graph->getSize())
+    while (edgeList.size() < graph->getSize() - 1)
     {
         Edge item = vertexQueue.top();
         vertexQueue.pop();
@@ -42,8 +42,7 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
         {
             int weight = graph->findEdge(item.end, i);
             Edge newItem = { item.end, i, weight };
-            if (weight != 0 && !Utility::containsEdge(edgeList, newItem)
-                && !Utility::contains(treeVertices, i))
+            if (weight != 0 && !Utility::containsEdge(edgeList, newItem) && !Utility::contains(treeVertices, i))
                 vertexQueue.push(newItem);
         }
     }
@@ -63,7 +62,7 @@ void Prim::proccessList(AdjacencyList * graph)
         vertexQueue.push(edge);
     }
 
-    while (treeVertices.size() < graph->getSize())
+    while (edgeList.size() < graph->getSize() - 1)
     {
         Edge item = vertexQueue.top();
         vertexQueue.pop();
@@ -75,8 +74,8 @@ void Prim::proccessList(AdjacencyList * graph)
         for (auto rowItem : currentRow)
         {
             Edge newItem = { item.end, rowItem.vertex, rowItem.weight };
-            if (!Utility::containsEdge(edgeList, newItem)
-            && !Utility::contains(treeVertices, rowItem.vertex)) vertexQueue.push(newItem);
+            if (!Utility::containsEdge(edgeList, newItem) && !Utility::contains(treeVertices, rowItem.vertex))
+                vertexQueue.push(newItem);
         }
     }
 }
