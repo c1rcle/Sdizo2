@@ -1,10 +1,6 @@
 #include "Prim.h"
 
-Prim::Prim()
-{
-    //Przygotowujemy kolejkę.
-    clearQueue();
-}
+Prim::Prim() = default;
 
 Prim::~Prim() = default;
 
@@ -23,28 +19,29 @@ void Prim::proccessMatrix(AdjacencyMatrix * graph)
         if (weight != 0)
         {
             Edge edge = { startingVertex, i, weight };
-            vertexQueue.push(edge);
+            vertexQueue.insert(edge);
         }
     }
 
     //Dopóki nasze drzewo nie zawiera wszystkich wierzchołków znajdujących się w grafie,
     //dodajemy do niego wierzchołek o najmniejszej wadze przejścia oraz aktualizujemy listę wierzchołków
     //o nowe, wychodzące z dodanego wierzchołka.
-    while (edgeList.size() < graph->getSize() - 1)
+    while (treeVertices.size() < graph->getSize())
     {
-        Edge item = vertexQueue.top();
-        vertexQueue.pop();
-        if (Utility::contains(treeVertices, item.end)) continue;
+        Edge item = vertexQueue.pop();
         treeVertices.push_back(item.end);
         edgeList.push_back(item);
 
         for (int i = 0; i < graph->getSize(); i++)
         {
-            int weight = graph->findEdge(item.end, i);
-            Edge newItem = { item.end, i, weight };
-            if (weight != 0 && !Utility::containsEdge(edgeList, newItem) && !Utility::contains(treeVertices, i))
-                vertexQueue.push(newItem);
+            if (!Utility::contains(treeVertices, i))
+            {
+                int weight = graph->findEdge(item.end, i);
+                Edge newItem = { item.end, i, weight };
+                if (weight != 0 && !Utility::containsEdge(edgeList, newItem)) vertexQueue.insert(newItem);
+            }
         }
+        deleteNotNeededEdges(treeVertices);
     }
 }
 
@@ -59,37 +56,45 @@ void Prim::proccessList(AdjacencyList * graph)
     for (auto rowItem : firstRow)
     {
         Edge edge = { startingVertex, rowItem.vertex, rowItem.weight };
-        vertexQueue.push(edge);
+        vertexQueue.insert(edge);
     }
 
-    while (edgeList.size() < graph->getSize() - 1)
+    while (treeVertices.size() < graph->getSize())
     {
-        Edge item = vertexQueue.top();
-        vertexQueue.pop();
-        if (Utility::contains(treeVertices, item.end)) continue;
+        Edge item = vertexQueue.pop();
         treeVertices.push_back(item.end);
         edgeList.push_back(item);
 
         std::list<ListItem> &currentRow = graph->getListForVertex(item.end);
         for (auto rowItem : currentRow)
         {
-            Edge newItem = { item.end, rowItem.vertex, rowItem.weight };
-            if (!Utility::containsEdge(edgeList, newItem) && !Utility::contains(treeVertices, rowItem.vertex))
-                vertexQueue.push(newItem);
+            if (!Utility::contains(treeVertices, rowItem.vertex))
+            {
+                Edge newItem = { item.end, rowItem.vertex, rowItem.weight };
+                if (!Utility::containsEdge(edgeList, newItem)) vertexQueue.insert(newItem);
+            }
         }
+        deleteNotNeededEdges(treeVertices);
     }
+}
+
+void Prim::deleteNotNeededEdges(std::list<int> &treeVertices)
+{
+    for (auto item : vertexQueue.getContainer())
+    {
+        if (Utility::contains(treeVertices, item.end))
+            vertexQueue.updateAndDelete(item);
+    }
+}
+
+void Prim::clearQueue()
+{
+    vertexQueue.clear();
 }
 
 std::list<Edge> &Prim::getEdgeList()
 {
     return edgeList;
-}
-
-void Prim::clearQueue()
-{
-    //Inicjalizacja kolejki priorytetowej.
-    auto compare = [](Edge left, Edge right) { return left.weight > right.weight; };
-    vertexQueue = minQueue(compare);
 }
 
 void Prim::resetContainers()

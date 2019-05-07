@@ -65,21 +65,17 @@ int AdjacencyMatrix::getSize()
     return graphSize;
 }
 
-std::string AdjacencyMatrix::toString()
+void AdjacencyMatrix::display()
 {
-    std::string representation;
     //Obliczamy ilość cyfr potrzebną do zapisania danej liczby.
-    int padding = floor(std::log10(graphSize * graphSize));
+    int padding = ceil(std::log10(graphSize * graphSize));
     for (int i = 0; i < graphSize; i++)
     {
         for (int j = 0; j < graphSize; j++)
         {
-            std::string currentWeight = std::to_string(base[i * graphSize + j]);
             //Wyrównujemy do lewej na podstawie maksymalnej wielkości.
-            currentWeight.insert(0, padding - currentWeight.size(), ' ');
-            representation.append(currentWeight + " ");
+            std::cout << std::setw(padding) << base[i * graphSize + j] << ' ';
         }
-        representation.append("\n");
+        std::cout << "\n";
     }
-    return representation;
 }

@@ -17,6 +17,18 @@ struct ListItem
     {
         return this->vertex == item.vertex && this->weight == item.weight;
     }
+    bool operator<(const ListItem& item)
+    {
+        return this->weight < item.weight;
+    }
+    bool operator<=(const ListItem& item)
+    {
+        return this->weight <= item.weight;
+    }
+    bool operator>(const ListItem& item)
+    {
+        return this->weight > item.weight;
+    }
 };
 
 /// Klasa reprezentująca listę sąsiedztwa.
@@ -59,6 +71,6 @@ public:
     std::list<ListItem>& getListForVertex(int vertex);
     /// Zwraca liczbę wierzchołków w grafie.
     int getSize();
-    /// Zwraca łańcuch znaków reprezentujący macierz.
-    std::string toString();
+    /// Wyświetla graf.
+    void display();
 };

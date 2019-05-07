@@ -2,9 +2,6 @@
 
 Dijkstra::Dijkstra(int size)
 {
-    //Deklaracja wyrażenia lambda jako komparatora dla kolejki priorytetowej.
-    auto compare = [](ListItem left, ListItem right) { return left.weight > right.weight; };
-    vertexQueue = minQueue(compare);
     //Alokujemy pamięć dla odpowiednich tablic.
     distance = new int[size];
     predeccesor = new int[size];
@@ -19,8 +16,6 @@ Dijkstra::~Dijkstra()
 
 void Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
 {
-    //Wektor pomocniczy służący do ułatwienia aktualizacji kolejki priorytetowej.
-    std::vector<int> completedVertices;
     for (int i = 0; i < graph->getSize(); i++)
     {
         //Dla każdego wierzchołka ustawiamy odległość na nieskończoność.
@@ -32,13 +27,16 @@ void Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
     //Wierzchołek startowy ma odległość równą zero.
     distance[startingVertex] = 0;
     //Wypełniamy kolejkę priorytetową.
-    updateQueue(graph->getSize(), completedVertices);
+    for (int i = 0; i < graph->getSize(); i++)
+    {
+        ListItem item { i, distance[i] };
+        vertexQueue.insert(item);
+    }
 
-    while (!vertexQueue.empty())
+    while (!vertexQueue.isEmpty())
     {
         //Dopóki kolejka nie jest pusta, usuwamy wierzchołek o najniższym priorytecie.
-        auto item = vertexQueue.top();
-        vertexQueue.pop();
+        auto item = vertexQueue.pop();
         //Dla każdego sąsiada wykonujemy relaksację krawędzi.
         for (int i = 0; i < graph->getSize(); i++)
         {
@@ -47,20 +45,18 @@ void Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
             {
                 if (distance[item.vertex] + weight < distance[i])
                 {
+                    ListItem updateItem = { i, distance[i] };
                     distance[i] = distance[item.vertex] + weight;
                     predeccesor[i] = item.vertex;
+                    vertexQueue.updateQueue(updateItem, { i, distance[i] });
                 }
             }
         }
-        //Aktualizujemy kolejkę priorytetową.
-        completedVertices.push_back(item.vertex);
-        updateQueue(graph->getSize(), completedVertices);
     }
 }
 
 void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
 {
-    std::vector<int> completedVertices;
     for (int i = 0; i < graph->getSize(); i++)
     {
         distance[i] = INT_MAX;
@@ -68,12 +64,15 @@ void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
     }
 
     distance[startingVertex] = 0;
-    updateQueue(graph->getSize(), completedVertices);
-
-    while (!vertexQueue.empty())
+    for (int i = 0; i < graph->getSize(); i++)
     {
-        auto item = vertexQueue.top();
-        vertexQueue.pop();
+        ListItem item { i, distance[i] };
+        vertexQueue.insert(item);
+    }
+
+    while (!vertexQueue.isEmpty())
+    {
+        auto item = vertexQueue.pop();
         for (int i = 0; i < graph->getSize(); i++)
         {
             int weight = graph->findEdge(item.vertex, i);
@@ -81,28 +80,12 @@ void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
             {
                 if (distance[item.vertex] + weight < distance[i])
                 {
+                    ListItem updateItem = { i, distance[i] };
                     distance[i] = distance[item.vertex] + weight;
                     predeccesor[i] = item.vertex;
+                    vertexQueue.updateQueue(updateItem, { i, distance[i] });
                 }
             }
-        }
-        completedVertices.push_back(item.vertex);
-        updateQueue(graph->getSize(), completedVertices);
-    }
-}
-
-void Dijkstra::updateQueue(int size, std::vector<int> &completedVertices)
-{
-    auto compare = [](ListItem left, ListItem right) { return left.weight > right.weight; };
-    vertexQueue = minQueue(compare);
-    for (int i = 0; i < size; i++)
-    {
-        //Dla każdego wierzchołka sprawdzamy czy nie został już przetworzony.
-        if (!Utility::contains(completedVertices, i))
-        {
-            //Jeśli nie, dodajemy go do kolejki.
-            ListItem item { i, distance[i] };
-            vertexQueue.push(item);
         }
     }
 }

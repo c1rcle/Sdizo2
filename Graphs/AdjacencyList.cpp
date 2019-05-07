@@ -74,17 +74,13 @@ int AdjacencyList::getSize()
     return graphSize;
 }
 
-std::string AdjacencyList::toString()
+void AdjacencyList::display()
 {
-    //Zwraca ciąg znaków reprezentujący graf w postaci listy sąsiedztwa.
-    std::string representation;
+    //Wyświetla ciąg znaków reprezentujący graf w postaci listy sąsiedztwa.
     for (int i = 0; i < graphSize; i++)
     {
-        representation.append(std::to_string(i) + ": ");
-        for (auto item : base[i]) representation.append(std::to_string(item.vertex)
-        + "(" + std::to_string(item.weight) + "), ");
-        representation.erase(representation.size() - 2);
-        representation.append("\n");
+        std::cout << i << ": ";
+        for (auto item : base[i]) std::cout << item.vertex << "(" << item.weight << "), ";
+        std::cout << "\b\b" << "  " << "\n";
     }
-    return representation;
 }

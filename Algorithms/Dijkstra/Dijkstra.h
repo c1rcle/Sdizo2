@@ -7,21 +7,18 @@
 #include "../../Graphs/AdjacencyMatrix.h"
 #include "../../Graphs/AdjacencyList.h"
 #include "../../Utility/Utility.h"
+#include "../../Utility/PriorityQueue.h"
 
 /// Klasa dla algorytmu Dijkstry.
 class Dijkstra
 {
 private:
-    typedef std::priority_queue<ListItem, std::vector<ListItem>, bool (*)(ListItem, ListItem)> minQueue;
     /// Kolejka priorytetowa dla wierzchołków
-    minQueue vertexQueue;
+    PriorityQueue<ListItem> vertexQueue;
     /// Tablica najkrótszych odległości do wierzchołków.
     int * distance;
     /// Tablica poprzedników dla wierzchołków.
     int * predeccesor;
-    /// Wypełnia kolejkę wierzchołkami.
-    /// \param size - ilość wierzchołków grafu.
-    void updateQueue(int size, std::vector<int> &completedVertices);
 public:
     /// Konstruktor klasy algorytmu Dijkstry.
     /// \param size - ilość wierzchołków grafu.

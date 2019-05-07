@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 #include <string>
 
@@ -35,6 +36,6 @@ public:
     int findEdge(int startVertex, int endVertex);
     /// Zwraca ilość wierzchołków grafu.
     int getSize();
-    /// Zwraca łańcuch znaków reprezentujący macierz.
-    std::string toString();
+    /// Wyświetla graf.
+    void display();
 };

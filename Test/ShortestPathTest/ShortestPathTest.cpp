@@ -57,7 +57,7 @@ TimeMeasurement ShortestPathTest::dijkstraTest(int vertexCount, int density, Dij
     TimeMeasurement timeMeasurement{};
     timeMeasurement.first = 0;
     timeMeasurement.second = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100; i++)
     {
         generateGraph(vertexCount, density);
         int startingVertex = rand() % matrix->getSize();
@@ -72,8 +72,8 @@ TimeMeasurement ShortestPathTest::dijkstraTest(int vertexCount, int density, Dij
         timeMeasurement.second += measurement.getDuration();
     }
 
-    timeMeasurement.first /= 10;
-    timeMeasurement.second /= 10;
+    timeMeasurement.first /= 100;
+    timeMeasurement.second /= 100;
     return timeMeasurement;
 }
 
@@ -82,7 +82,7 @@ TimeMeasurement ShortestPathTest::fordBellmanTest(int vertexCount, int density, 
     TimeMeasurement timeMeasurement{};
     timeMeasurement.first = 0;
     timeMeasurement.second = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100; i++)
     {
         generateGraph(vertexCount, density);
         int startingVertex = rand() % matrix->getSize();
@@ -97,8 +97,8 @@ TimeMeasurement ShortestPathTest::fordBellmanTest(int vertexCount, int density, 
         timeMeasurement.second += measurement.getDuration();
     }
 
-    timeMeasurement.first /= 10;
-    timeMeasurement.second /= 10;
+    timeMeasurement.first /= 100;
+    timeMeasurement.second /= 100;
     return timeMeasurement;
 }
 

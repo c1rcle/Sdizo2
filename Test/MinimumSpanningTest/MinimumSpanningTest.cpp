@@ -65,7 +65,7 @@ TimeMeasurement MinimumSpanningTest::primTest(int vertexCount, int density, Prim
     TimeMeasurement timeMeasurement{};
     timeMeasurement.first = 0;
     timeMeasurement.second = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100; i++)
     {
         generateGraph(vertexCount, density);
         measurement.startTimer();
@@ -81,8 +81,8 @@ TimeMeasurement MinimumSpanningTest::primTest(int vertexCount, int density, Prim
         timeMeasurement.second += measurement.getDuration();
     }
 
-    timeMeasurement.first /= 10;
-    timeMeasurement.second /= 10;
+    timeMeasurement.first /= 100;
+    timeMeasurement.second /= 100;
     return timeMeasurement;
 }
 
@@ -91,7 +91,7 @@ TimeMeasurement MinimumSpanningTest::kruskalTest(int vertexCount, int density, K
     TimeMeasurement timeMeasurement{};
     timeMeasurement.first = 0;
     timeMeasurement.second = 0;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100; i++)
     {
         generateGraph(vertexCount, density);
         measurement.startTimer();
@@ -107,14 +107,14 @@ TimeMeasurement MinimumSpanningTest::kruskalTest(int vertexCount, int density, K
         timeMeasurement.second += measurement.getDuration();
     }
 
-    timeMeasurement.first /= 10;
-    timeMeasurement.second /= 10;
+    timeMeasurement.first /= 100;
+    timeMeasurement.second /= 100;
     return timeMeasurement;
 }
 
 void MinimumSpanningTest::executionTestAverage()
 {
-    int vertexCounts[] = { 10, 20, 50, 100, 200 };
+    int vertexCounts[] = { 50, 100, 200, 500, 1000 };
     int densities[] = { 20, 50, 75, 99 };
     std::ofstream file;
     file.open("mstResult.txt");

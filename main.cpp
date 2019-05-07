@@ -3,6 +3,7 @@
 #include "Menu/Menu.h"
 #include "Menu/Submenus/ShortestPathItem.h"
 #include "Menu/Submenus/MinimumSpanningItem.h"
+#include "Utility/PriorityQueue.h"
 
 int main()
 {

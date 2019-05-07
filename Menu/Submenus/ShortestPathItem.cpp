@@ -135,9 +135,9 @@ void ShortestPathItem::display()
     if (matrix != nullptr && list != nullptr)
     {
         std::cout << "\nMacierz sąsiedztwa:" << std::endl;
-        std::cout << matrix->toString() << std::endl;
+        matrix->display();
         std::cout << "Lista sąsiedztwa:"<< std::endl;
-        std::cout << list->toString();
+        list->display();
     }
     else std::cout << "\nGraf jest pusty!" << std::endl;
 }

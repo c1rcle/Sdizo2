@@ -7,16 +7,19 @@
 #include "../../Graphs/AdjacencyList.h"
 #include "../../Utility/Utility.h"
 #include "../../Utility/Edge.h"
+#include "../../Utility/PriorityQueue.h"
 
 /// Klasa dla algorytmu Prima.
 class Prim
 {
 private:
-    typedef std::priority_queue<Edge, std::vector<Edge>, bool (*)(Edge, Edge)> minQueue;
     /// Kolejka priorytetowa dla wierzchołków
-    minQueue vertexQueue;
+    PriorityQueue<Edge> vertexQueue;
     /// Lista krawędzi drzewa MST.
     std::list<Edge> edgeList;
+    /// Usuwa z kolejki krawędzie, których wierzchołek końcowy należy już do MST i aktualizuje ją.
+    /// \param treeVertices - lista wierzchołków drzewa MST.
+    void deleteNotNeededEdges(std::list<int> &treeVertices);
     /// Czyści kolejkę wierzchołków.
     void clearQueue();
 public:
