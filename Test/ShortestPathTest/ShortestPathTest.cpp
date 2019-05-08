@@ -104,7 +104,7 @@ TimeMeasurement ShortestPathTest::fordBellmanTest(int vertexCount, int density, 
 
 void ShortestPathTest::executionTestAverage()
 {
-    int vertexCounts[] = { 10, 20, 50, 100, 200 };
+    int vertexCounts[] = { 100, 200, 300, 400, 500 };
     int densities[] = { 20, 50, 75, 99 };
     std::ofstream file;
     file.open("sptResult.txt");

@@ -114,7 +114,7 @@ TimeMeasurement MinimumSpanningTest::kruskalTest(int vertexCount, int density, K
 
 void MinimumSpanningTest::executionTestAverage()
 {
-    int vertexCounts[] = { 50, 100, 200, 500, 1000 };
+    int vertexCounts[] = { 100, 200, 300, 400, 500 };
     int densities[] = { 20, 50, 75, 99 };
     std::ofstream file;
     file.open("mstResult.txt");
