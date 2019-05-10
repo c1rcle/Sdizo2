@@ -43,7 +43,7 @@ void Dijkstra::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
             int weight = graph->findEdge(item.vertex, i);
             if (weight != 0)
             {
-                if (distance[item.vertex] + weight < distance[i])
+                if (distance[item.vertex] + weight < distance[i] && distance[item.vertex] != INT_MAX)
                 {
                     ListItem updateItem = { i, distance[i] };
                     distance[i] = distance[item.vertex] + weight;
@@ -78,7 +78,7 @@ void Dijkstra::proccessList(AdjacencyList * graph, int startingVertex)
             int weight = graph->findEdge(item.vertex, i);
             if (weight != 0)
             {
-                if (distance[item.vertex] + weight < distance[i])
+                if (distance[item.vertex] + weight < distance[i] && distance[item.vertex] != INT_MAX)
                 {
                     ListItem updateItem = { i, distance[i] };
                     distance[i] = distance[item.vertex] + weight;

@@ -102,14 +102,16 @@ void ShortestPathItem::createRandom()
     matrix = new AdjacencyMatrix(vertexCount);
     list = new AdjacencyList(vertexCount);
 
+    startingVertex = rand() % vertexCount;
     int maxEdges = static_cast<int>(density / 100.0f * (vertexCount * vertexCount));
     int edgeCount = 0;
     //Generujemy drzewo rozpinające.
-    for (int i = 0; i < vertexCount - 1; i++)
+    for (int i = 0; i < vertexCount; i++)
     {
+        if (i == startingVertex) continue;
         int weight = (rand() % maxEdges) + 1;
-        matrix->addEdge(i, i + 1, weight);
-        list->addEdge(i, i + 1, weight);
+        matrix->addEdge(startingVertex, i, weight);
+        list->addEdge(startingVertex, i, weight);
         edgeCount++;
     }
 
@@ -136,7 +138,7 @@ void ShortestPathItem::display()
     {
         std::cout << "\nMacierz sąsiedztwa:" << std::endl;
         matrix->display();
-        std::cout << "Lista sąsiedztwa:"<< std::endl;
+        std::cout << "\nLista sąsiedztwa:"<< std::endl;
         list->display();
     }
     else std::cout << "\nGraf jest pusty!" << std::endl;
@@ -199,6 +201,7 @@ void ShortestPathItem::displayAlgorithmResult(int * distance, int * predeccesor)
 
     for (int i = 0; i < matrix->getSize(); i++)
     {
+        if (distance[i] == INT_MAX) continue;
         int currentVertex = i;
         while (currentVertex != startingVertex)
         {

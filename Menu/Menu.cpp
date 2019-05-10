@@ -17,7 +17,7 @@ void Menu::addMenuItem(MenuItem *item)
 
 void Menu::printMenu()
 {
-    std::cout << "Menu aplikacji" << std::endl;
+    std::cout << "\nMenu aplikacji" << std::endl;
     int i = 1;
     for (MenuItem * item : items)
     {

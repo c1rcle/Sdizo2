@@ -145,7 +145,7 @@ void MinimumSpanningItem::display()
     {
         std::cout << "\nMacierz sąsiedztwa:" << std::endl;
         matrix->display();
-        std::cout << "Lista sąsiedztwa:"<< std::endl;
+        std::cout << "\nLista sąsiedztwa:"<< std::endl;
         list->display();
     }
     else std::cout << "\nGraf jest pusty!" << std::endl;

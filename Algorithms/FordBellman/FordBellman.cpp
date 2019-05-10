@@ -37,7 +37,7 @@ void FordBellman::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
                 int weight = graph->findEdge(u, v);
                 if (weight != 0)
                 {
-                    if (distance[u] + weight < distance[v])
+                    if (distance[u] + weight < distance[v] && distance[u] != INT_MAX)
                     {
                         distance[v] = distance[u] + weight;
                         predeccesor[v] = u;
@@ -64,7 +64,7 @@ void FordBellman::proccessList(AdjacencyList * graph, int startingVertex)
             //W reprezentacji listowej wystarczy przejście przez odpowiednie listy dla każdego z wierzchołków.
             for (auto item : graph->getListForVertex(u))
             {
-                if (distance[u] + item.weight < distance[item.vertex])
+                if (distance[u] + item.weight < distance[item.vertex] && distance[u] != INT_MAX)
                 {
                     distance[item.vertex] = distance[u] + item.weight;
                     predeccesor[item.vertex] = u;

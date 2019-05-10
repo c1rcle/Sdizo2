@@ -14,9 +14,10 @@ private:
     /// Obiekt klasy służacej do wykonywania pomiarów.
     Measurement measurement;
     /// Tworzy graf o 'size' wierzchołkach oraz 'density' gęstości.
+    /// \param startingVertex - wierzchołkem startowy.
     /// \param size - ilość wierzchołków.
     /// \param density - gęstość grafu.
-    void generateGraph(int vertexCount, int density);
+    void generateGraph(int startingVertex, int vertexCount, int density);
     /// Testuje wydajność wykonywania się algorytmu Dijkstry.
     /// \param size - ilość wierzchołków.
     /// \param density - gęstość grafu.

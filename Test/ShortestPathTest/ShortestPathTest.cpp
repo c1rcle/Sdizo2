@@ -15,7 +15,7 @@ ShortestPathTest::~ShortestPathTest()
     }
 }
 
-void ShortestPathTest::generateGraph(int vertexCount, int density)
+void ShortestPathTest::generateGraph(int startingVertex, int vertexCount, int density)
 {
     if (matrix != nullptr && list != nullptr)
     {
@@ -28,11 +28,12 @@ void ShortestPathTest::generateGraph(int vertexCount, int density)
     int maxEdges = static_cast<int>(density / 100.0f * (vertexCount * vertexCount));
     int edgeCount = 0;
     //Generujemy drzewo rozpinające.
-    for (int i = 0; i < vertexCount - 1; i++)
+    for (int i = 0; i < vertexCount; i++)
     {
+        if (i == startingVertex) continue;
         int weight = (rand() % maxEdges) + 1;
-        matrix->addEdge(i, i + 1, weight);
-        list->addEdge(i, i + 1, weight);
+        matrix->addEdge(startingVertex, i, weight);
+        list->addEdge(startingVertex, i, weight);
         edgeCount++;
     }
 
@@ -59,8 +60,8 @@ TimeMeasurement ShortestPathTest::dijkstraTest(int vertexCount, int density, Dij
     timeMeasurement.second = 0;
     for (int i = 0; i < 100; i++)
     {
-        generateGraph(vertexCount, density);
-        int startingVertex = rand() % matrix->getSize();
+        int startingVertex = rand() % vertexCount;
+        generateGraph(startingVertex, vertexCount, density);
         measurement.startTimer();
         dijkstra->proccessMatrix(matrix, startingVertex);
         measurement.stopTimer();
@@ -71,7 +72,6 @@ TimeMeasurement ShortestPathTest::dijkstraTest(int vertexCount, int density, Dij
         measurement.stopTimer();
         timeMeasurement.second += measurement.getDuration();
     }
-
     timeMeasurement.first /= 100;
     timeMeasurement.second /= 100;
     return timeMeasurement;
@@ -84,8 +84,8 @@ TimeMeasurement ShortestPathTest::fordBellmanTest(int vertexCount, int density, 
     timeMeasurement.second = 0;
     for (int i = 0; i < 100; i++)
     {
-        generateGraph(vertexCount, density);
-        int startingVertex = rand() % matrix->getSize();
+        int startingVertex = rand() % vertexCount;
+        generateGraph(startingVertex, vertexCount, density);
         measurement.startTimer();
         fordBellman->proccessMatrix(matrix, startingVertex);
         measurement.stopTimer();
@@ -96,7 +96,6 @@ TimeMeasurement ShortestPathTest::fordBellmanTest(int vertexCount, int density, 
         measurement.stopTimer();
         timeMeasurement.second += measurement.getDuration();
     }
-
     timeMeasurement.first /= 100;
     timeMeasurement.second /= 100;
     return timeMeasurement;
