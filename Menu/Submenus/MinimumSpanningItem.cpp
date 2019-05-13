@@ -160,16 +160,14 @@ void MinimumSpanningItem::executeFirst()
         return;
     }
 
-    auto * prim = new Prim();
+    auto * prim = new Prim(matrix->getSize());
     prim->proccessMatrix(matrix);
     std::cout << "\nMacierz sąsiedztwa: " << std::endl;
-    displayAlgorithmResult(prim->getEdgeList());
-    prim->resetContainers();
+    displayPrimResult(prim->getKeyArray(), prim->getConnectionArray(), matrix->getSize());
 
     prim->proccessList(list);
     std::cout << "\nLista sąsiedztwa: " << std::endl;
-    displayAlgorithmResult(prim->getEdgeList());
-    prim->resetContainers();
+    displayPrimResult(prim->getKeyArray(), prim->getConnectionArray(), matrix->getSize());
     delete prim;
 }
 
@@ -185,12 +183,12 @@ void MinimumSpanningItem::executeSecond()
     auto * kruskal = new Kruskal();
     kruskal->proccessMatrix(matrix);
     std::cout << "\nMacierz sąsiedztwa: " << std::endl;
-    displayAlgorithmResult(kruskal->getEdgeList());
+    displayKruskalResult(kruskal->getEdgeList());
     kruskal->resetContainers();
 
     kruskal->proccessList(list);
     std::cout << "\nLista sąsiedztwa: " << std::endl;
-    displayAlgorithmResult(kruskal->getEdgeList());
+    displayKruskalResult(kruskal->getEdgeList());
     kruskal->resetContainers();
     delete kruskal;
 }
@@ -203,15 +201,31 @@ void MinimumSpanningItem::test()
 }
 
 
-void MinimumSpanningItem::displayAlgorithmResult(std::list<Edge> &edgeList)
+void MinimumSpanningItem::displayKruskalResult(std::list<Edge> &edgeList)
 {
-    //Wyświetla wynik działania algorytmu (w obu przypadkach lista krawędzi należących do MST).
+    //Wyświetla wynik działania algorytmu (lista krawędzi należących do MST).
     int mstWeight = 0;
     std::cout << "Krawędzie należące do MST: " << std::endl;
     for (auto item : edgeList)
     {
         std::cout << item.start << ", " << item.end << ", waga: " << item.weight << std::endl;
         mstWeight += item.weight;
+    }
+    std::cout << "Waga drzewa wynosi: " << mstWeight << std::endl;
+}
+
+void MinimumSpanningItem::displayPrimResult(int * key, int * connection, int size)
+{
+    //Wyświetla wynik działania algorytmu (tablica wag i połączeń).
+    int mstWeight = 0;
+    std::cout << "Krawędzie należące do MST: " << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        if (connection[i] != -1)
+        {
+            std::cout << i << ", " << connection[i] << ", waga: " << key[i] << std::endl;
+            mstWeight += key[i];
+        }
     }
     std::cout << "Waga drzewa wynosi: " << mstWeight << std::endl;
 }

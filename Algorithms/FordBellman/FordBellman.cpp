@@ -35,7 +35,7 @@ void FordBellman::proccessMatrix(AdjacencyMatrix * graph, int startingVertex)
             for (int v = 0; v < graph->getSize(); v++)
             {
                 int weight = graph->findEdge(u, v);
-                if (weight != 0)
+                if (weight != INT_MAX)
                 {
                     if (distance[u] + weight < distance[v] && distance[u] != INT_MAX)
                     {

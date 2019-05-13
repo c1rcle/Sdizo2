@@ -32,15 +32,13 @@ public:
     /// \param existing - element do wyszukania.
     /// \param newValue - element do zamiany.
     void updateQueue(T existing, T newValue);
-    /// Znajduje dany element w kolejce, usuwa go i następnie przywraca własności kopca.
-    /// \param element - element do usunięcia.
-    void updateAndDelete(T element);
-    /// Zwraca referencję do kontenera kolejki.
-    /// \return referencja do kontenera kolejki.
-    std::vector<T> &getContainer();
     /// Ściąga minimalny element, usuwa go z kopca oraz przywraca jego własności.
     /// \return minimalny element znajdujący się w kopcu.
     T pop();
+    /// Sprawdza czy dany element znajduje się w kolejce.
+    /// \param element - element do wyszukania.
+    /// \return true jeśli zostanie odnaleziony, w przeciwnym wypadku false.
+    bool find(T element);
     /// Czyści kolejkę.
     void clear();
     /// Sprawdza czy kolejka jest pusta.
@@ -89,36 +87,6 @@ void PriorityQueue<T>::updateQueue(T existing, T newValue)
 }
 
 template<class T>
-void PriorityQueue<T>::updateAndDelete(T element)
-{
-    for (int i = 0; i < vertexCount; i++)
-    {
-        //Jeśli element zostanie znaleziony, usuwamy go z kopca.
-        if (base[i] == element)
-        {
-            if (i == 0)
-            {
-                pop();
-                return;
-            }
-            vertexCount--;
-            base[i] = base[vertexCount];
-            base.erase(base.begin() + vertexCount);
-            T parent = base[(i - 1) / 2];
-            if (base[i] < parent) heapFixUp(i);
-            else heapFixDown(i);
-            return;
-        }
-    }
-}
-
-template<class T>
-std::vector<T> &PriorityQueue<T>::getContainer()
-{
-    return base;
-}
-
-template<class T>
 T PriorityQueue<T>::pop()
 {
     if (vertexCount == 0) throw std::length_error(EXCEPTION_DESC);
@@ -164,6 +132,16 @@ void PriorityQueue<T>::heapFixDown(int index)
         index = greaterChildren;
         greaterChildren = 2 * greaterChildren + 1;
     }
+}
+
+template<class T>
+bool PriorityQueue<T>::find(T element)
+{
+    for (int i = 0; i < vertexCount; i++)
+    {
+        if (base[i] == element) return true;
+    }
+    return false;
 }
 
 template<class T>

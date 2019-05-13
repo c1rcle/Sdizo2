@@ -26,8 +26,13 @@ private:
     void executeSecond();
     /// Wykonuje testy dla obu algorytmów.
     void test();
-    /// Wyświetla rezultat działania algorytmu.
-    static void displayAlgorithmResult(std::list<Edge> &edgeList);
+    /// Wyświetla rezultat działania algorytmu Kruskala.
+    /// \param edgeList - referencja do listy krawędzi drzewa MST.
+    static void displayKruskalResult(std::list<Edge> &edgeList);
+    /// Wyświetla rezultat działania algorytmu Prima.
+    /// \param key - tablica najmniejszych wag krawędzi dla wierzchołków.
+    /// \param connection - tablica połączeń.
+    static void displayPrimResult(int * key, int * connection, int size);
 public:
     /// Konstruktor klasy submenu dla problemu najkrótszej ścieżki.
     MinimumSpanningItem();

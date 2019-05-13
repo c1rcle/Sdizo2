@@ -1,105 +1,88 @@
+#include <climits>
 #include "Prim.h"
 
-Prim::Prim() = default;
+Prim::Prim(int size)
+{
+    key = new int[size];
+    connection = new int[size];
+}
 
-Prim::~Prim() = default;
+Prim::~Prim()
+{
+    delete[] key;
+    delete[] connection;
+}
 
 void Prim::proccessMatrix(AdjacencyMatrix * graph)
 {
-    //Lista służy do przechowywania wierzchołków, które należą już do MST.
-    std::list<int> treeVertices;
+    for (int i = 0; i < graph->getSize(); i++)
+        key[i] = INT_MAX;
+
     //Wierzchołek początkowy jest wybierany losowo.
     int startingVertex = rand() % graph->getSize();
-    treeVertices.push_back(startingVertex);
+    key[startingVertex] = 0;
+    connection[startingVertex] = -1;
 
     //Do kolejki priorytetowej dodajemy wszystkie krawędzie wychodzące z wylosowanego wierzchołka.
     for (int i = 0; i < graph->getSize(); i++)
-    {
-        int weight = graph->findEdge(startingVertex, i);
-        if (weight != 0)
-        {
-            Edge edge = { startingVertex, i, weight };
-            vertexQueue.insert(edge);
-        }
-    }
+        vertexQueue.insert({ i, key[i] });
 
     //Dopóki nasze drzewo nie zawiera wszystkich wierzchołków znajdujących się w grafie,
-    //dodajemy do niego wierzchołek o najmniejszej wadze przejścia oraz aktualizujemy listę wierzchołków
-    //o nowe, wychodzące z dodanego wierzchołka.
-    while (treeVertices.size() < graph->getSize())
+    //dodajemy do niego wierzchołek o najmniejszej wadze przejścia oraz aktualizujemy kolejkę wierzchołków.
+    while (!vertexQueue.isEmpty())
     {
-        Edge item = vertexQueue.pop();
-        treeVertices.push_back(item.end);
-        edgeList.push_back(item);
-
+        auto item = vertexQueue.pop();
         for (int i = 0; i < graph->getSize(); i++)
         {
-            if (!Utility::contains(treeVertices, i))
+            int weight = graph->findEdge(item.vertex, i);
+            if (weight != INT_MAX)
             {
-                int weight = graph->findEdge(item.end, i);
-                Edge newItem = { item.end, i, weight };
-                if (weight != 0 && !Utility::containsEdge(edgeList, newItem)) vertexQueue.insert(newItem);
+                if (vertexQueue.find({ i, key[i] }) && weight < key[i])
+                {
+                    vertexQueue.updateQueue({ i, key[i] }, { i, weight });
+                    key[i] = weight;
+                    connection[i] = item.vertex;
+                }
             }
         }
-        deleteNotNeededEdges(treeVertices);
     }
 }
 
 void Prim::proccessList(AdjacencyList * graph)
 {
-    std::list<int> treeVertices;
+    for (int i = 0; i < graph->getSize(); i++)
+        key[i] = INT_MAX;
+
     int startingVertex = rand() % graph->getSize();
-    treeVertices.push_back(startingVertex);
+    key[startingVertex] = 0;
+    connection[startingVertex] = -1;
 
-    //Dla reprezentacji listowej mamy dokładnie tyle iteracji, ile krawędzi wychodzi z danego wierzchołka.
-    std::list<ListItem> &firstRow = graph->getListForVertex(startingVertex);
-    for (auto rowItem : firstRow)
+    for (int i = 0; i < graph->getSize(); i++)
+        vertexQueue.insert({ i, key[i] });
+
+    while (!vertexQueue.isEmpty())
     {
-        Edge edge = { startingVertex, rowItem.vertex, rowItem.weight };
-        vertexQueue.insert(edge);
-    }
-
-    while (treeVertices.size() < graph->getSize())
-    {
-        Edge item = vertexQueue.pop();
-        treeVertices.push_back(item.end);
-        edgeList.push_back(item);
-
-        std::list<ListItem> &currentRow = graph->getListForVertex(item.end);
-        for (auto rowItem : currentRow)
+        auto item = vertexQueue.pop();
+        //Dla reprezentacji listowej mamy dokładnie tyle iteracji, ile krawędzi wychodzi z danego wierzchołka.
+        for (auto edge : graph->getListForVertex(item.vertex))
         {
-            if (!Utility::contains(treeVertices, rowItem.vertex))
+            int vertex = edge.vertex;
+            if (vertexQueue.find({ vertex, key[vertex] }) && edge.weight < key[vertex])
             {
-                Edge newItem = { item.end, rowItem.vertex, rowItem.weight };
-                if (!Utility::containsEdge(edgeList, newItem)) vertexQueue.insert(newItem);
+                vertexQueue.updateQueue({ vertex, key[vertex] }, { vertex, edge.weight });
+                key[vertex] = edge.weight;
+                connection[vertex] = item.vertex;
             }
         }
-        deleteNotNeededEdges(treeVertices);
     }
 }
 
-void Prim::deleteNotNeededEdges(std::list<int> &treeVertices)
+int * Prim::getKeyArray()
 {
-    for (auto item : vertexQueue.getContainer())
-    {
-        if (Utility::contains(treeVertices, item.end))
-            vertexQueue.updateAndDelete(item);
-    }
+    return key;
 }
 
-void Prim::clearQueue()
+int * Prim::getConnectionArray()
 {
-    vertexQueue.clear();
-}
-
-std::list<Edge> &Prim::getEdgeList()
-{
-    return edgeList;
-}
-
-void Prim::resetContainers()
-{
-    //Czyści kontenery przechowujące wyniki algorytmu.
-    clearQueue();
-    edgeList.clear();
+    return connection;
 }

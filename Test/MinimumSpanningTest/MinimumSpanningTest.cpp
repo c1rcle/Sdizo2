@@ -73,10 +73,8 @@ TimeMeasurement MinimumSpanningTest::primTest(int vertexCount, int density, Prim
         measurement.stopTimer();
         timeMeasurement.first += measurement.getDuration();
 
-        prim->resetContainers();
         measurement.startTimer();
         prim->proccessList(list);
-        prim->resetContainers();
         measurement.stopTimer();
         timeMeasurement.second += measurement.getDuration();
     }
@@ -120,16 +118,16 @@ void MinimumSpanningTest::executionTestAverage()
     file.open("mstResult.txt");
     if (file.is_open())
     {
-        auto * prim = new Prim();
         for (auto count : vertexCounts)
         {
+            auto * prim = new Prim(count);
             for (auto density : densities)
             {
                 auto time = primTest(count, density, prim);
                 file << time.first << " " << time.second << "\n";
             }
+            delete prim;
         }
-        delete prim;
 
         file << "\n";
         auto * kruskal = new Kruskal();

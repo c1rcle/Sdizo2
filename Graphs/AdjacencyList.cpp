@@ -51,7 +51,7 @@ int AdjacencyList::findEdge(int startVertex, int endVertex)
     {
         if (item.vertex == endVertex) return item.weight;
     }
-    return 0;
+    return INT_MAX;
 }
 
 std::list<ListItem>::iterator AdjacencyList::findVertex(std::list<ListItem> &list, int vertex)

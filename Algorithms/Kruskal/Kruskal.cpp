@@ -43,7 +43,7 @@ void Kruskal::proccessMatrix(AdjacencyMatrix * graph)
         for (int j = 0; j < diagonal; j++)
         {
             int weight = graph->findEdge(i, j);
-            if (weight != 0)
+            if (weight != INT_MAX)
             {
                 Edge item = { i, j, weight };
                 edgeVector.push_back(item);

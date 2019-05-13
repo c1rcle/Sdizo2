@@ -9,7 +9,7 @@ AdjacencyMatrix::AdjacencyMatrix(int graphSize)
     //Zerujemy tablicę.
     for (int i = 0; i < graphSize; i++)
         for (int j = 0; j < graphSize; j++)
-            base[i * graphSize + j] = 0;
+            base[i * graphSize + j] = INT_MAX;
 }
 
 AdjacencyMatrix::~AdjacencyMatrix()
@@ -19,8 +19,6 @@ AdjacencyMatrix::~AdjacencyMatrix()
 
 void AdjacencyMatrix::addEdge(int startVertex, int endVertex, int weight)
 {
-    //Dodajemy nową krawędź jeśli waga jest większa lub równa 1.
-    if (weight < 1) throw std::invalid_argument(EXCEPTION_DESC);
     try
     {
         base[startVertex * graphSize + endVertex] = weight;
@@ -35,8 +33,8 @@ void AdjacencyMatrix::removeEdge(int startVertex, int endVertex)
 {
     try
     {
-        //Brak krawędzi to '0' w macierzy sąsiedztwa.
-        base[startVertex * graphSize + endVertex] = 0;
+        //Brak krawędzi to 'INT_MAX' w macierzy sąsiedztwa.
+        base[startVertex * graphSize + endVertex] = INT_MAX;
     }
     catch (std::out_of_range&)
     {
@@ -73,8 +71,10 @@ void AdjacencyMatrix::display()
     {
         for (int j = 0; j < graphSize; j++)
         {
+            int value = base[i * graphSize + j];
+            if (value == INT_MAX) value = 0;
             //Wyrównujemy do lewej na podstawie maksymalnej wielkości.
-            std::cout << std::setw(padding) << base[i * graphSize + j] << ' ';
+            std::cout << std::setw(padding) << value << ' ';
         }
         std::cout << "\n";
     }

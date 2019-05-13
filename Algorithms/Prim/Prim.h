@@ -13,18 +13,16 @@
 class Prim
 {
 private:
+    /// Wagi najmniejszych krawędzi dla konkretnego wierzchołka.
+    int * key;
+    /// Połączenia wierzchołków.
+    int * connection;
     /// Kolejka priorytetowa dla wierzchołków
-    PriorityQueue<Edge> vertexQueue;
-    /// Lista krawędzi drzewa MST.
-    std::list<Edge> edgeList;
-    /// Usuwa z kolejki krawędzie, których wierzchołek końcowy należy już do MST i aktualizuje ją.
-    /// \param treeVertices - lista wierzchołków drzewa MST.
-    void deleteNotNeededEdges(std::list<int> &treeVertices);
-    /// Czyści kolejkę wierzchołków.
-    void clearQueue();
+    PriorityQueue<ListItem> vertexQueue;
 public:
     /// Konstruktor klasy algorytmu Prima.
-    Prim();
+    /// \param size - ilość wierzchołków grafu.
+    explicit Prim(int size);
     /// Destruktor klasy algorytmu Prima.
     ~Prim();
     /// Wykonuje algorytm dla grafu w postaci macierzy sąsiedztwa.
@@ -33,9 +31,10 @@ public:
     /// Wykonuje algorytm dla grafu w postaci listy sąsiedztwa.
     /// \param graph - lista sąsiedztwa grafu.
     void proccessList(AdjacencyList * graph);
-    /// Zwraca listę krawędzi drzewa MST.
-    /// \return - referencja do listy krawędzi drzewa MST.
-    std::list<Edge> &getEdgeList();
-    /// Usuwa wyniki działania algorytmu poprzez wyczyszczenie kontenerów.
-    void resetContainers();
+    /// Zwraca tablicę najmniejszych wag krawędzi dla wierzchołków.
+    /// \return wskaźnik na pierwszy element tablicy krawędzi.
+    int * getKeyArray();
+    /// Zwraca tablicę połączeń wierzchołków.
+    /// \return wskaźnik na pierwszy element tablicy połączeń.
+    int * getConnectionArray();
 };
